@@ -5,7 +5,7 @@ const Forecast = ({ forecast }) => {
     <div className="forecast-container">
       {forecast &&
         forecast.forecastday.map((weather) => (
-          <div className="forecast">
+          <div key={weather.date_epoch} className="forecast">
             <p>{weather.date}</p>
 
             <div className="forecast-weather">
