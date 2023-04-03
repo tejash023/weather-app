@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 
 import WeatherImage from "./WeatherImage";
+import CurrentDetails from "./CurrentDetails";
+import LocationInfo from "./LocationInfo";
+import Forecast from "./Forecast";
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -49,34 +52,11 @@ const Dashboard = () => {
 
       <WeatherImage condition={current.condition?.text} time={current.isDay} />
 
-      <div className="current-weather-details">
-        <p className="temp-text">
-          {current.temp_c}
-          <span>&deg; C</span>
-        </p>
-        <p className="temp-condition">{current.condition?.text}</p>
-      </div>
+      <CurrentDetails current={current} />
 
-      <div className="location-details">
-        <p className="location-name">
-          {location.name} <span>{location.country}</span>
-        </p>
-      </div>
-      <div>
-        {location && (
-          <ul>
-            <li>{location.name}</li>
-            <li>{location.country}</li>
-          </ul>
-        )}
-        {current && (
-          <ul>
-            <li>{current.temp_c} C</li>
-            <li>{current.wind_kph} KPH</li>
-            <p>Last Updated: {current.last_updated}</p>
-          </ul>
-        )}
-      </div>
+      <LocationInfo location={location} />
+
+      <Forecast forecast={forecast} />
     </div>
   );
 };

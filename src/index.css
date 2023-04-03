@@ -115,3 +115,11 @@ button:hover {
   font-weight: 200;
   font-weight: 0.7rem;
 }
+
+.forecast {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: white;
+  margin-bottom: 5px;
+}
