@@ -7,7 +7,7 @@ const CurrentDetails = ({ current }) => {
         {current.temp_c}
         <span>&deg; C</span>
       </p>
-      <p className="temp-condition">{current.condition?.text}</p>
+      <p className="temp-condition">{current.condition?.text} </p>
     </div>
   );
 };

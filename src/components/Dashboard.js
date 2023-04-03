@@ -6,6 +6,7 @@ import WeatherImage from "./WeatherImage";
 import CurrentDetails from "./CurrentDetails";
 import LocationInfo from "./LocationInfo";
 import Forecast from "./Forecast";
+import Loader from "./Loader";
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -50,13 +51,19 @@ const Dashboard = () => {
         </button>
       </div>
 
-      <WeatherImage condition={current.condition?.text} time={current.isDay} />
-
-      <CurrentDetails current={current} />
-
-      <LocationInfo location={location} />
-
-      <Forecast forecast={forecast} />
+      {!cityName ? (
+        <Loader />
+      ) : (
+        <>
+          <LocationInfo location={location} />
+          <WeatherImage
+            condition={current.condition?.text}
+            time={current.isDay}
+          />
+          <CurrentDetails current={current} />
+          <Forecast forecast={forecast} />{" "}
+        </>
+      )}
     </div>
   );
 };

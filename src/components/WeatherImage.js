@@ -19,43 +19,43 @@ const WeatherImage = ({ condition, isDay }) => {
   const getIcon = (condition) => {
     switch (condition) {
       case "Sunny":
-        return <IoIosSunny color="white" size="100" />;
-        break;
+        return <IoIosSunny color="white" size="75" />;
+
       case "Partly cloudy":
-        return <IoMdPartlySunny color="white" size="100" />;
-        break;
+        return <IoMdPartlySunny color="white" size="75" />;
+
       case "Cloudy":
-        return <AiFillCloud color="white" size="100" />;
-        break;
+        return <AiFillCloud color="white" size="75" />;
+
       case "Overcast":
-        return <BsFillCloudHazeFill color="white" size="100" />;
-        break;
+        return <BsFillCloudHazeFill color="white" size="75" />;
+
       case "Mist":
-        return <MdOutlineWaves color="white" size="100" />;
-        break;
+        return <MdOutlineWaves color="white" size="75" />;
+
       case "Fog":
-        return <BsFillCloudFog2Fill color="white" size="100" />;
-        break;
+        return <BsFillCloudFog2Fill color="white" size="75" />;
+
       case "Light rain":
-        return <BsFillCloudRainFill color="white" size="100" />;
-        break;
+        return <BsFillCloudRainFill color="white" size="75" />;
+
       case "Moderate rain":
-        return <BsFillCloudRainHeavyFill color="white" size="100" />;
-        break;
+        return <BsFillCloudRainHeavyFill color="white" size="75" />;
+
       case "Heavy rain":
-        return <BsFillCloudLightningRainFill color="white" size="100" />;
-        break;
+        return <BsFillCloudLightningRainFill color="white" size="75" />;
+
       case "Light snow":
-        return <RiSnowyFill color="white" size="100" />;
-        break;
+        return <RiSnowyFill color="white" size="75" />;
+
       case "Moderate snow":
-        return <BsCloudSnowFill color="white" size="100" />;
-        break;
+        return <BsCloudSnowFill color="white" size="75" />;
+
       case "Heavy snow":
-        return <FaRegSnowflake color="white" size="100" />;
-        break;
+        return <FaRegSnowflake color="white" size="75" />;
+
       default:
-        return <BsFillCloudSunFill color="white" size="100" />;
+        return <BsFillCloudSunFill color="white" size="75" />;
     }
   };
   return <div className="weather-image">{getIcon(condition)}</div>;
