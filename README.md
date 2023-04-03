@@ -6,11 +6,10 @@
 
 - Search bar where users can enter a city name and search for weather data
 - Current weather conditions (temperature, weather icon, description) for the searched city
-- Five-day forecast for the searched city, including temperature and weather icons
+- Three-day forecast for the searched city, including temperature and weather icons
 - Responsive design
-- Utilizes Angular for the front-end and Open Weather API for weather data
+- Utilizes React for the front-end and Open Weather API for weather data
 - Best practices for code organization, including separating the app into components and services where appropriate
-- Well-documented with clear instructions on how to run the project locally
 
 ## Getting Started
 
