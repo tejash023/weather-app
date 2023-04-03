@@ -1,6 +1,7 @@
 import { WEATHER_API_URL } from "../utils/constant";
 import { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
+import toast, { Toaster } from "react-hot-toast";
 
 import WeatherImage from "./WeatherImage";
 import CurrentDetails from "./CurrentDetails";
@@ -14,29 +15,31 @@ const Dashboard = () => {
   const [location, setLocation] = useState("");
   const [forecast, setForecast] = useState("");
   const [current, setCurrent] = useState("");
-  const [error, setError] = useState(false);
 
   useEffect(() => {
+    const getWeatherData = async () => {
+      const response = await fetch(
+        WEATHER_API_URL + cityName + "&days=3&aqi=no&alerts=yes"
+      );
+
+      const data = await response.json();
+
+      if (data.error) {
+        toast.error("Invalid Location! Try Again", {
+          id: "error",
+          position: "bottom-center",
+        });
+        setCityName("");
+        return <Loader />;
+      } else {
+        setLocation(data.location);
+        setForecast(data.forecast);
+        setCurrent(data.current);
+      }
+    };
+
     getWeatherData();
   }, [cityName]);
-
-  const getWeatherData = async () => {
-    const response = await fetch(
-      WEATHER_API_URL + cityName + "&days=3&aqi=no&alerts=yes"
-    );
-
-    const data = await response.json();
-
-    if (data.error) {
-      setError(true);
-      return;
-    } else {
-      setLocation(data.location);
-      setForecast(data.forecast);
-      setCurrent(data.current);
-      setError(false);
-    }
-  };
 
   return (
     <div className="container">
@@ -64,6 +67,8 @@ const Dashboard = () => {
           <Forecast forecast={forecast} />{" "}
         </>
       )}
+
+      <Toaster />
     </div>
   );
 };

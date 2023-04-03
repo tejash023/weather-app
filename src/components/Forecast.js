@@ -9,8 +9,8 @@ const Forecast = ({ forecast }) => {
             <p>{weather.date}</p>
 
             <div className="forecast-weather">
-              <p>Max: {weather.day.maxtemp_c}&deg; C</p>
-              <p>Min: {weather.day.mintemp_c}&deg; C</p>
+              <p>MAX: {weather.day.maxtemp_c}&deg; C</p>
+              <p>MIN: {weather.day.mintemp_c}&deg; C</p>
             </div>
           </div>
         ))}
